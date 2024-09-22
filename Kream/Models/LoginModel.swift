@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct LoginModel {
+    var id: Int?
+    var pwd: Int?
+}

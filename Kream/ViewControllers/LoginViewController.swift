@@ -11,10 +11,14 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .green
-        // Do any additional setup after loading the view.
+        self.view = loginView
     }
 
+    private lazy var loginView: LoginView = {
+        let view = LoginView()
+        
+        return view
+    }()
 
 }
 
