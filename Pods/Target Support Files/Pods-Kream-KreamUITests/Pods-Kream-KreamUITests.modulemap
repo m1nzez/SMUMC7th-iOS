@@ -1,0 +1,6 @@
+framework module Pods_Kream_KreamUITests {
+  umbrella header "Pods-Kream-KreamUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,34 @@
+//
+//  MainTabBarViewController.swift
+//  Kream
+//
+//  Created by 김민지 on 9/23/24.
+//
+
+import UIKit
+
+class MainTabBarViewController: UITabBarController {
+
+    private let homeVC = HomeViewController()
+    private let styleVC = StyleViewController()
+    private let shopVC = ShopViewController()
+    private let savedVC = SavedViewController()
+    private let myVC = MyPageViewController()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        homeVC.tabBarItem = UITabBarItem(title: "tabBarVC", image: UIImage(systemName: "house"), tag: 0)
+        styleVC.tabBarItem = UITabBarItem(title: "tabBarVC", image: UIImage(systemName: "newspaper"), tag: 1)
+        shopVC.tabBarItem = UITabBarItem(title: "tabBarVC", image: UIImage(systemName: "text.magnifyingglass"), tag: 2)
+        savedVC.tabBarItem = UITabBarItem(title: "tabBarVC", image: UIImage(systemName: "clipboard"), tag: 3)
+        myVC.tabBarItem = UITabBarItem(title: "tabBarVC", image: UIImage(systemName: "person"), tag: 4)
+        
+        self.viewControllers = [homeVC, styleVC, shopVC, savedVC, myVC]
+        
+        // 탭 선택 시 검정색으로 설정
+        self.tabBar.tintColor = .black
+    }
+
+}
