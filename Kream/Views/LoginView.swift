@@ -32,7 +32,7 @@ class LoginView: UIView {
     public lazy var emailLabel: UILabel = {
         let label = UILabel()
         
-        label.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = UIColor.black
         label.text = "이메일 주소"
         label.textAlignment = .left
@@ -43,17 +43,33 @@ class LoginView: UIView {
     
     public lazy var emailTextField: UITextField = {
         let textField = UITextField()
-        textField.borderStyle = .roundedRect
+        textField.borderStyle = .none       // 기본 테두리 대신 커스텀 설정을 위해 사용
+        
+        // 테두리 설정
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderWidth = 1.0
+        textField.layer.cornerRadius = 15.0
+        
         textField.placeholder = "예) kream@kream.co.kr"
-        textField.font = UIFont.systemFont(ofSize: 15)
+        textField.font = UIFont.systemFont(ofSize: 12)
+        
+        // left padding 설정
+        // paddingView: UIview를 이용해 텍스트 필드의 왼쪽에 10pt의 패딩을 줌
+        // leftView에 넣어줌으로써 placeholder와 텍스트가 왼쪽에 붙지 않고 여백이 생김
+        // .always로 설정해 항상 여백이 유지되도록 함
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+        
         textField.translatesAutoresizingMaskIntoConstraints = false
+        
         return textField
      }()
     
     //  비밀번호 라벨 및 textfield
     public lazy var passwordLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         label.textColor = UIColor.black
         label.text = "비밀번호"
         label.textAlignment = .left
@@ -66,8 +82,15 @@ class LoginView: UIView {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "비밀번호를 입력해주세요"
-        textField.font = UIFont.systemFont(ofSize: 15)
+        textField.font = UIFont.systemFont(ofSize: 12)
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+        
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.translatesAutoresizingMaskIntoConstraints = false
+    
         return textField
      }()
     
@@ -87,23 +110,34 @@ class LoginView: UIView {
         let button = UIButton(type: .system)
         
         // 카카오 폰트 설정
-        let boldFont = UIFont.boldSystemFont(ofSize: 16) // 원하는 크기로 설정
+        let boldFont = UIFont.boldSystemFont(ofSize: 16)
         let attributes: [NSAttributedString.Key: Any] = [ .font: boldFont ]
         let attributedTitle = NSAttributedString(string: "카카오로 로그인", attributes: attributes)
         
-        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.setAttributedTitle(attributedTitle, for: .normal) // 버튼에 NSAttributedString으로 포맷된 제목을 설정
 
         button.setTitleColor(.black, for: .normal)
         button.layer.borderColor = UIColor(named: "kream_lightGray")?.cgColor
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 8
-        button.translatesAutoresizingMaskIntoConstraints = false
         
-        let logoImage = UIImageView(image: UIImage(systemName: "kakaologo")) 
-        logoImage.tintColor = .black  // 로고 색상 설정
+        // 카카오 메시지 로고 추가 및 위치 제약 설정
+        let logoImage = UIImageView(image: UIImage(systemName: "message.fill"))
+        logoImage.tintColor = .black
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        
         button.addSubview(logoImage)
+
+        NSLayoutConstraint.activate([
+            logoImage.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 17),
+            logoImage.centerYAnchor.constraint(equalTo: button.centerYAnchor),
+            logoImage.widthAnchor.constraint(equalToConstant: 17),   // 로고 크기
+            logoImage.heightAnchor.constraint(equalToConstant: 16)
+        ])
+        
+        // 버튼 텍스트의 위치 조정
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        button.translatesAutoresizingMaskIntoConstraints = false
+
         return button
     }()
     
@@ -116,6 +150,25 @@ class LoginView: UIView {
         // borderColor는 CALayer속성이기에 UIClor대신 CGColor를 사용해야함
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 8
+        
+        // 애플 메시지 로고 추가 및 위치 제약 설정
+        let logoImage = UIImageView(image: UIImage(systemName: "apple.logo"))
+        logoImage.tintColor = .black
+        logoImage.translatesAutoresizingMaskIntoConstraints = false
+        button.addSubview(logoImage)
+
+        NSLayoutConstraint.activate([
+            logoImage.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 17),
+            logoImage.centerYAnchor.constraint(equalTo: button.centerYAnchor),
+            logoImage.widthAnchor.constraint(equalToConstant: 16.7),   // 로고 크기
+            logoImage.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        // 버튼 텍스트의 위치 조정
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
