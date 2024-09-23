@@ -19,11 +19,11 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        homeVC.tabBarItem = UITabBarItem(title: "tabBarVC", image: UIImage(systemName: "house"), tag: 0)
-        styleVC.tabBarItem = UITabBarItem(title: "tabBarVC", image: UIImage(systemName: "newspaper"), tag: 1)
-        shopVC.tabBarItem = UITabBarItem(title: "tabBarVC", image: UIImage(systemName: "text.magnifyingglass"), tag: 2)
-        savedVC.tabBarItem = UITabBarItem(title: "tabBarVC", image: UIImage(systemName: "clipboard"), tag: 3)
-        myVC.tabBarItem = UITabBarItem(title: "tabBarVC", image: UIImage(systemName: "person"), tag: 4)
+        homeVC.tabBarItem = UITabBarItem(title: "HOME", image: UIImage(systemName: "house"), tag: 0)
+        styleVC.tabBarItem = UITabBarItem(title: "STYLE", image: UIImage(systemName: "newspaper"), tag: 1)
+        shopVC.tabBarItem = UITabBarItem(title: "SHOP", image: UIImage(systemName: "text.magnifyingglass"), tag: 2)
+        savedVC.tabBarItem = UITabBarItem(title: "SAVED", image: UIImage(systemName: "clipboard"), tag: 3)
+        myVC.tabBarItem = UITabBarItem(title: "MY", image: UIImage(systemName: "person"), tag: 4)
         
         self.viewControllers = [homeVC, styleVC, shopVC, savedVC, myVC]
         

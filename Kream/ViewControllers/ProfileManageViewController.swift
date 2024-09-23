@@ -1,5 +1,5 @@
 //
-//  MyPageViewController.swift
+//  ProfileManageViewController.swift
 //  Kream
 //
 //  Created by 김민지 on 9/23/24.
@@ -7,19 +7,15 @@
 
 import UIKit
 
-class MyPageViewController: UIViewController {
+class ProfileManageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = myPageView
+
+        // Do any additional setup after loading the view.
     }
     
-    private lazy var myPageView: MyPageView = {
-        let view = MyPageView()
 
-        return view
-    }()
-    
     /*
     // MARK: - Navigation
 
