@@ -17,6 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        
+        // 네비게이션 바 설정
+        let navigationVC = UINavigationController(rootViewController: MyPageViewController())
+        
+        // 기본 rootVC 설정
         window?.rootViewController = LoginViewController()
         window?.makeKeyAndVisible()
     }

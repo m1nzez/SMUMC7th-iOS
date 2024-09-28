@@ -8,7 +8,7 @@
 import UIKit
 
 class MyPageViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = myPageView
@@ -16,18 +16,17 @@ class MyPageViewController: UIViewController {
     
     private lazy var myPageView: MyPageView = {
         let view = MyPageView()
+        view.profileManageButton.addTarget(self, action: #selector(profileManageButtonTapped), for: .touchUpInside)
 
         return view
     }()
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // present: 모달 방식으로 독립된 화면을 띄움 (돌아갈때는 dismiss)
+    // push: 네비게션 컨트롤러를 사용해 화면을 스택에 쌓는 방식 (돌아갈때는 pop) 
+    @objc func profileManageButtonTapped() {
+        let profileManageVC = ProfileManageViewController()
+        // pushViewController를 사용하여 화면 이동
+        self.navigationController?.pushViewController(profileManageVC, animated: true)
     }
-    */
 
 }

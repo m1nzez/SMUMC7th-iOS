@@ -20,6 +20,7 @@
 		972A41F62CA076AB00A3E733 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A41F52CA076AB00A3E733 /* SavedViewController.swift */; };
 		972A41F82CA076B900A3E733 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A41F72CA076B900A3E733 /* MyPageViewController.swift */; };
 		97AD31472CA15147000E9717 /* ProfileManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD31462CA15147000E9717 /* ProfileManageViewController.swift */; };
+		97AD31492CA1AD45000E9717 /* ProfileManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD31482CA1AD45000E9717 /* ProfileManageView.swift */; };
 		97B5978B2C983753004E4921 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B5978A2C983753004E4921 /* AppDelegate.swift */; };
 		97B5978D2C983753004E4921 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B5978C2C983753004E4921 /* SceneDelegate.swift */; };
 		97B5978F2C983753004E4921 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B5978E2C983753004E4921 /* LoginViewController.swift */; };
@@ -62,6 +63,7 @@
 		972A41F52CA076AB00A3E733 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		972A41F72CA076B900A3E733 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		97AD31462CA15147000E9717 /* ProfileManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileManageViewController.swift; path = Kream/ViewControllers/ProfileManageViewController.swift; sourceTree = SOURCE_ROOT; };
+		97AD31482CA1AD45000E9717 /* ProfileManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManageView.swift; sourceTree = "<group>"; };
 		97B597872C983753004E4921 /* Kream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B5978A2C983753004E4921 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97B5978C2C983753004E4921 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				970159C52C99921E007DEA4B /* LoginView.swift */,
 				972A41E82CA06D4D00A3E733 /* MyPageView.swift */,
+				97AD31482CA1AD45000E9717 /* ProfileManageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				972A41F42CA0769D00A3E733 /* ShopViewController.swift in Sources */,
 				97B5978B2C983753004E4921 /* AppDelegate.swift in Sources */,
 				97AD31472CA15147000E9717 /* ProfileManageViewController.swift in Sources */,
+				97AD31492CA1AD45000E9717 /* ProfileManageView.swift in Sources */,
 				972A41F22CA0768B00A3E733 /* StyleViewController.swift in Sources */,
 				972A41F02CA0766E00A3E733 /* HomeViewController.swift in Sources */,
 				972A41EE2CA071C300A3E733 /* MainTabBarViewController.swift in Sources */,

@@ -26,6 +26,8 @@ class MyPageView: UIView {
         
         button.tintColor = .black
         button.setImage(image, for: .normal)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
 
         return button
     }()
@@ -37,6 +39,8 @@ class MyPageView: UIView {
         button.tintColor = .black
         button.setImage(image, for: .normal)
         
+        button.translatesAutoresizingMaskIntoConstraints = false
+
         return button
     }()
     
@@ -53,6 +57,8 @@ class MyPageView: UIView {
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 8
         
+        button.translatesAutoresizingMaskIntoConstraints = false
+
         return button
     }()
     
@@ -69,6 +75,8 @@ class MyPageView: UIView {
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 8
         
+        button.translatesAutoresizingMaskIntoConstraints = false
+
         return button
     }()
     
@@ -80,29 +88,33 @@ class MyPageView: UIView {
         self.addSubview(profileShareButton)
         
         setButton.snp.makeConstraints {
+            $0.width.lessThanOrEqualTo(25)
+            $0.height.lessThanOrEqualTo(25)
             $0.top.equalToSuperview().offset(75)
-            $0.leading.equalToSuperview().offset(32.5)
-            $0.trailing.equalToSuperview().inset(333.5)
+            $0.leading.lessThanOrEqualToSuperview().offset(32.5)
         }
         
         cameraButton.snp.makeConstraints {
+            $0.width.lessThanOrEqualTo(25)
+            $0.height.lessThanOrEqualTo(25)
             $0.top.equalToSuperview().offset(75)
-            $0.leading.equalTo(setButton.snp.leading).offset(302)
-            $0.trailing.equalToSuperview().inset(32.5)
+            $0.trailing.lessThanOrEqualTo(-25)
         }
         
         profileManageButton.snp.makeConstraints {
+            $0.width.lessThanOrEqualTo(157)
+            $0.height.equalTo(26)
             $0.top.equalToSuperview().offset(242)
             $0.leading.equalToSuperview().offset(32.5)
-            $0.width.equalTo(157)
-            $0.height.equalTo(26)
+            $0.trailing.equalTo(profileShareButton.snp.leading).offset(-14)
         }
         
         profileShareButton.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(242)
-            $0.leading.equalTo(profileManageButton.snp.trailing).offset(14) // profileManageButton의 오른쪽에 위치
-            $0.width.equalTo(157)
+            $0.width.equalTo(profileManageButton) // 두 버튼의 너비를 동일하게 설정
             $0.height.equalTo(26)
+            $0.top.equalToSuperview().offset(242)
+            $0.leading.equalTo(profileManageButton.snp.trailing).offset(14)
+            $0.trailing.equalToSuperview().offset(-32.5)
         }
         
     }

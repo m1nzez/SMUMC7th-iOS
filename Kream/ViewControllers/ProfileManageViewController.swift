@@ -11,19 +11,35 @@ class ProfileManageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.view = profileManageView
+        setupNavigationBar()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private lazy var profileManageView: ProfileManageView = {
+        let view = ProfileManageView()
+        return view
+    }()
+    
+    // 네비게이션바는 ViewController에서 설정
+    func setupNavigationBar() {
+        // 백 버튼 추가
+        let backButton = UIButton(type: .system)
+        let image = UIImage(systemName: "arrow.left")
+        backButton.tintColor = .black
+        backButton.setImage(image, for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(customView: backButton), animated: true)
+        self.navigationItem.title = "프로필 관리"
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            .font: UIFont.systemFont(ofSize: 16, weight: .medium),
+            .foregroundColor: UIColor.black
+        ]
     }
-    */
+
+    @objc func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
 }

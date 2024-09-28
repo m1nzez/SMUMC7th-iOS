@@ -54,10 +54,10 @@ class LoginView: UIView {
         textField.font = UIFont.systemFont(ofSize: 12)
         
         // left padding 설정
-        // paddingView: UIview를 이용해 텍스트 필드의 왼쪽에 10pt의 패딩을 줌
+        // paddingView: UIview를 이용해 텍스트 필드의 왼쪽에 16pt의 패딩을 줌
         // leftView에 넣어줌으로써 placeholder와 텍스트가 왼쪽에 붙지 않고 여백이 생김
         // .always로 설정해 항상 여백이 유지되도록 함
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
         
@@ -84,11 +84,9 @@ class LoginView: UIView {
         textField.placeholder = "비밀번호를 입력해주세요"
         textField.font = UIFont.systemFont(ofSize: 12)
         
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
-        
-        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.translatesAutoresizingMaskIntoConstraints = false
     
         return textField
@@ -168,8 +166,6 @@ class LoginView: UIView {
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -188,47 +184,48 @@ class LoginView: UIView {
         // Constraint 잡기
         NSLayoutConstraint.activate([
             // Logo Image
-            logoImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 86),
+            logoImageView.topAnchor.constraint(lessThanOrEqualTo: self.safeAreaLayoutGuide.topAnchor, constant: 86),
             logoImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             logoImageView.widthAnchor.constraint(equalToConstant: 287),
             logoImageView.heightAnchor.constraint(equalToConstant: 75),
             
             // Email Label
-            emailLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 87),
+            emailLabel.topAnchor.constraint(lessThanOrEqualTo: logoImageView.bottomAnchor, constant: 87),
             emailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45),
             //emailLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -45),
                   
             // Email TextField
-            emailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 8),
+            emailTextField.topAnchor.constraint(lessThanOrEqualTo: emailLabel.bottomAnchor, constant: 8),
             emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45),
+            emailTextField.widthAnchor.constraint(lessThanOrEqualToConstant: 303),
             emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -45),
             emailTextField.heightAnchor.constraint(equalToConstant: 34),
                   
             // Password Label
-            passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 17),
+            passwordLabel.topAnchor.constraint(lessThanOrEqualTo: emailTextField.bottomAnchor, constant: 17),
             passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45),
             //passwordLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
                   
             // Password TextField
-            passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 8),
+            passwordTextField.topAnchor.constraint(lessThanOrEqualTo: passwordLabel.bottomAnchor, constant: 8),
             passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45),
             passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -45),
             passwordTextField.heightAnchor.constraint(equalToConstant: 34),
                   
             // 이메일 로그인 버튼
-            emailLoginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 17),
+            emailLoginButton.topAnchor.constraint(lessThanOrEqualTo: passwordTextField.bottomAnchor, constant: 17),
             emailLoginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45),
             emailLoginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -45),
             emailLoginButton.heightAnchor.constraint(equalToConstant: 38),
                   
             // 카카오 로그인 버튼
-            kakaoLoginButton.topAnchor.constraint(equalTo: emailLoginButton.bottomAnchor, constant: 87),
+            kakaoLoginButton.topAnchor.constraint(lessThanOrEqualTo: emailLoginButton.bottomAnchor, constant: 87),
             kakaoLoginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 47.5),
             kakaoLoginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -47.5),
             kakaoLoginButton.heightAnchor.constraint(equalToConstant: 40),
                   
             // 애플 로그인 버튼
-            appleLoginButton.topAnchor.constraint(equalTo: kakaoLoginButton.bottomAnchor, constant: 22),
+            appleLoginButton.topAnchor.constraint(lessThanOrEqualTo: kakaoLoginButton.bottomAnchor, constant: 22),
             appleLoginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 47.5),
             appleLoginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -47.5),
             appleLoginButton.heightAnchor.constraint(equalToConstant: 40)

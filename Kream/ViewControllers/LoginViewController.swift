@@ -8,12 +8,12 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = loginView
     }
-
+    
     private lazy var loginView: LoginView = {
         let view = LoginView()
         view.emailLoginButton.addTarget(self, action: #selector(emailLoginButtonTapped), for: .touchUpInside)
@@ -21,12 +21,12 @@ class LoginViewController: UIViewController {
         view.appleLoginButton.addTarget(self, action: #selector(appleLoginButtonTapped), for: .touchUpInside)
         return view
     }()
-
+    
     @objc func emailLoginButtonTapped() {
         let viewController = MainTabBarViewController()
         
         viewController.modalPresentationStyle = .fullScreen
-    
+        
         present(viewController, animated: true)
     }
     
@@ -38,4 +38,3 @@ class LoginViewController: UIViewController {
         
     }
 }
-
