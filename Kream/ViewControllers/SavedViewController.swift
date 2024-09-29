@@ -9,6 +9,8 @@ import UIKit
 
 class SavedViewController: UIViewController {
 
+    let data = dummySavedModel.savedDatas
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = savedView

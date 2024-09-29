@@ -30,12 +30,42 @@ class SavedView: UIView {
         return label
     }()
     
+    public lazy var savedNumberLabel: UILabel = {
+        let label = UILabel()
+        label.text = "전체 8개"
+        label.textAlignment = .center
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 14)
+        
+        return label
+    }()
+    
+    public lazy var savedTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(SavedCell.self, forCellReuseIdentifier: SavedCell.identifier)
+        tableView.separatorStyle = .singleLine
+        
+        return tableView
+    }()
+    
     private func addComponents() {
         self.addSubview(savedLabel)
+        self.addSubview(savedNumberLabel)
+        self.addSubview(savedTableView)
         
         savedLabel.snp.makeConstraints {
             $0.top.lessThanOrEqualToSuperview().offset(61)
             $0.leading.lessThanOrEqualToSuperview().offset(10)
+        }
+        
+        savedNumberLabel.snp.makeConstraints {
+            $0.top.lessThanOrEqualTo(savedLabel.snp.bottom).offset(16)
+            $0.leading.lessThanOrEqualToSuperview().offset(13)
+        }
+        
+        savedTableView.snp.makeConstraints {
+            $0.top.equalTo(savedNumberLabel.snp.bottom).offset(12)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
 }

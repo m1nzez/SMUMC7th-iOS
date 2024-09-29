@@ -20,6 +20,8 @@
 		972A41F62CA076AB00A3E733 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A41F52CA076AB00A3E733 /* SavedViewController.swift */; };
 		972A41F82CA076B900A3E733 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A41F72CA076B900A3E733 /* MyPageViewController.swift */; };
 		9764A7882CA913A500FED49F /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9764A7872CA913A500FED49F /* SavedView.swift */; };
+		9764A78A2CA92E9500FED49F /* SavedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9764A7892CA92E9500FED49F /* SavedModel.swift */; };
+		9764A78C2CA934F000FED49F /* SavedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9764A78B2CA934F000FED49F /* SavedCell.swift */; };
 		97AD31472CA15147000E9717 /* ProfileManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD31462CA15147000E9717 /* ProfileManageViewController.swift */; };
 		97AD31492CA1AD45000E9717 /* ProfileManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD31482CA1AD45000E9717 /* ProfileManageView.swift */; };
 		97B5978B2C983753004E4921 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B5978A2C983753004E4921 /* AppDelegate.swift */; };
@@ -64,6 +66,8 @@
 		972A41F52CA076AB00A3E733 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		972A41F72CA076B900A3E733 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		9764A7872CA913A500FED49F /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
+		9764A7892CA92E9500FED49F /* SavedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedModel.swift; sourceTree = "<group>"; };
+		9764A78B2CA934F000FED49F /* SavedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCell.swift; sourceTree = "<group>"; };
 		97AD31462CA15147000E9717 /* ProfileManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileManageViewController.swift; path = Kream/ViewControllers/ProfileManageViewController.swift; sourceTree = SOURCE_ROOT; };
 		97AD31482CA1AD45000E9717 /* ProfileManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManageView.swift; sourceTree = "<group>"; };
 		97B597872C983753004E4921 /* Kream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kream.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				970159C02C999125007DEA4B /* LoginModel.swift */,
+				9764A7892CA92E9500FED49F /* SavedModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				970159C52C99921E007DEA4B /* LoginView.swift */,
+				9764A78B2CA934F000FED49F /* SavedCell.swift */,
 				9764A7872CA913A500FED49F /* SavedView.swift */,
 				972A41E82CA06D4D00A3E733 /* MyPageView.swift */,
 				97AD31482CA1AD45000E9717 /* ProfileManageView.swift */,
@@ -479,8 +485,10 @@
 				970159C62C99921E007DEA4B /* LoginView.swift in Sources */,
 				9764A7882CA913A500FED49F /* SavedView.swift in Sources */,
 				972A41F62CA076AB00A3E733 /* SavedViewController.swift in Sources */,
+				9764A78C2CA934F000FED49F /* SavedCell.swift in Sources */,
 				97B5978D2C983753004E4921 /* SceneDelegate.swift in Sources */,
 				972A41E92CA06D4D00A3E733 /* MyPageView.swift in Sources */,
+				9764A78A2CA92E9500FED49F /* SavedModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
