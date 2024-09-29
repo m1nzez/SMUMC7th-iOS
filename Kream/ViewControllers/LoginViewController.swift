@@ -9,6 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    private let loginModel = LoginModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = loginView
@@ -23,18 +25,29 @@ class LoginViewController: UIViewController {
     }()
     
     @objc func emailLoginButtonTapped() {
+        // 로그인 아이디 비번 저장
+        guard let emailInfo = loginView.emailTextField.text, !emailInfo.isEmpty else {
+            return
+        }
+        guard let pwdInfo = loginView.pwdTextField.text, !pwdInfo.isEmpty else {
+            return
+        }
+        
+        // 모델을 통해 텍스트 저장
+        loginModel.saveUserId(emailInfo)
+        loginModel.saveUserPwd(pwdInfo)
+        
+        print("\(emailInfo), \(pwdInfo)")
+        
+        // 모달로 화면 이동
         let viewController = MainTabBarViewController()
-        
         viewController.modalPresentationStyle = .fullScreen
-        
         present(viewController, animated: true)
     }
     
     @objc func kakaoLoginButtonTapped() {
-        
     }
     
     @objc func appleLoginButtonTapped() {
-        
     }
 }

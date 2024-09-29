@@ -67,7 +67,7 @@ class LoginView: UIView {
      }()
     
     //  비밀번호 라벨 및 textfield
-    public lazy var passwordLabel: UILabel = {
+    public lazy var pwdLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         label.textColor = UIColor.black
@@ -78,7 +78,7 @@ class LoginView: UIView {
         return label
     }()
     
-    public lazy var passwordTextField: UITextField = {
+    public lazy var pwdTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "비밀번호를 입력해주세요"
@@ -175,8 +175,8 @@ class LoginView: UIView {
         self.addSubview(logoImageView)
         self.addSubview(emailLabel)
         self.addSubview(emailTextField)
-        self.addSubview(passwordLabel)
-        self.addSubview(passwordTextField)
+        self.addSubview(pwdLabel)
+        self.addSubview(pwdTextField)
         self.addSubview(emailLoginButton)
         self.addSubview(kakaoLoginButton)
         self.addSubview(appleLoginButton)
@@ -202,18 +202,18 @@ class LoginView: UIView {
             emailTextField.heightAnchor.constraint(equalToConstant: 34),
                   
             // Password Label
-            passwordLabel.topAnchor.constraint(lessThanOrEqualTo: emailTextField.bottomAnchor, constant: 17),
-            passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45),
-            //passwordLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            pwdLabel.topAnchor.constraint(lessThanOrEqualTo: emailTextField.bottomAnchor, constant: 17),
+            pwdLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45),
+            //pwdLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
                   
             // Password TextField
-            passwordTextField.topAnchor.constraint(lessThanOrEqualTo: passwordLabel.bottomAnchor, constant: 8),
-            passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45),
-            passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -45),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 34),
+            pwdTextField.topAnchor.constraint(lessThanOrEqualTo: pwdLabel.bottomAnchor, constant: 8),
+            pwdTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45),
+            pwdTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -45),
+            pwdTextField.heightAnchor.constraint(equalToConstant: 34),
                   
             // 이메일 로그인 버튼
-            emailLoginButton.topAnchor.constraint(lessThanOrEqualTo: passwordTextField.bottomAnchor, constant: 17),
+            emailLoginButton.topAnchor.constraint(lessThanOrEqualTo: pwdTextField.bottomAnchor, constant: 17),
             emailLoginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45),
             emailLoginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -45),
             emailLoginButton.heightAnchor.constraint(equalToConstant: 38),
