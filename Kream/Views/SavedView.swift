@@ -40,6 +40,7 @@ class SavedView: UIView {
         return label
     }()
     
+    // TableView에 customCell 등록
     public lazy var savedTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(SavedCell.self, forCellReuseIdentifier: SavedCell.identifier)
@@ -66,6 +67,7 @@ class SavedView: UIView {
         savedTableView.snp.makeConstraints {
             $0.top.equalTo(savedNumberLabel.snp.bottom).offset(12)
             $0.leading.trailing.bottom.equalToSuperview()
+            //$0.bottom.lessThanOrEqualToSuperview().offset(-20)
         }
     }
 }

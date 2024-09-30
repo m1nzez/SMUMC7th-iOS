@@ -11,7 +11,7 @@ class LoginModel {
     private let userDefaults = UserDefaults.standard
     private var email: String = ""
     private var pwd: String = ""
-    
+        
     public func saveUserId(_ text: String) {
         userDefaults.set(text, forKey: email)
     }

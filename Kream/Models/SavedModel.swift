@@ -14,6 +14,7 @@ struct SavedModel {
     let savedPrice: String
 }
 
+// 더미 데이터 생성 
 final class dummySavedModel {
     static let savedDatas: [SavedModel] = [
         SavedModel(savedImage: "savedCell1", 

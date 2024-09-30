@@ -11,46 +11,46 @@ import SnapKit
 class SavedCell: UITableViewCell {
     static let identifier = "SavedCell"
 
-      override func awakeFromNib() {
-          super.awakeFromNib()
-          // Initialization code
-      }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
 
-      override func setSelected(_ selected: Bool, animated: Bool) {
-          super.setSelected(selected, animated: animated)
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
 
-          // Configure the view for the selected state
-      }
-      
-      override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-          super.init(style: style, reuseIdentifier: reuseIdentifier)
-          self.addComponents()
-      }
-      
-      override func prepareForReuse() {
-          super.prepareForReuse()
-          self.savedImageView.image = nil
-          self.savedNameLabel.text = nil
-          self.savedInfoLabel.text = nil
-          self.savedPriceLabel.text = nil
-      }
-      
-      required init?(coder: NSCoder) {
-          fatalError("init(coder:) has not been implemented")
-      }
-      
+        // Configure the view for the selected state
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.addComponents()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.savedImageView.image = nil
+        self.savedNameLabel.text = nil
+        self.savedInfoLabel.text = nil
+        self.savedPriceLabel.text = nil
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // 각 셀에 대한 component 설정
-      private lazy var savedImageView: UIImageView = {
-          let imageView = UIImageView()
-          
-          return imageView
-      }()
-      
+    private lazy var savedImageView: UIImageView = {
+        let imageView = UIImageView()
+        
+        return imageView
+    }()
+    
     private lazy var savedNameLabel: UILabel = {
-          let label = UILabel()
+        let label = UILabel()
           
           return label
-      }()
+    }()
     
     private lazy var savedInfoLabel: UILabel = {
         let label = UILabel()
@@ -64,7 +64,6 @@ class SavedCell: UITableViewCell {
         return label
     }()
     
-
     private func addComponents() {
         self.addSubview(savedImageView)
         self.addSubview(savedNameLabel)
