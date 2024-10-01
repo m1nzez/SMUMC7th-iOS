@@ -9,18 +9,11 @@ import UIKit
 
 class MainTabBarViewController: UITabBarController {
 
-    private let homeVC = HomeViewController()
-    private let styleVC = StyleViewController()
-    private let shopVC = ShopViewController()
-    private let savedVC = SavedViewController()
-    
-    // 네비게이션 컨트롤러로 MyPageVC를 감쌈
-    private let myVC: UINavigationController = {
-        let myPageVC = MyPageViewController()
-        let navController = UINavigationController(rootViewController: myPageVC)
-        
-        return navController
-    }()
+    private let homeVC = UINavigationController(rootViewController: HomeViewController())
+    private let styleVC = UINavigationController(rootViewController: StyleViewController())
+    private let shopVC = UINavigationController(rootViewController: ShopViewController())
+    private let savedVC = UINavigationController(rootViewController: SavedViewController())
+    private let myVC = UINavigationController(rootViewController: MyPageViewController())
     
     override func viewDidLoad() {
         super.viewDidLoad()

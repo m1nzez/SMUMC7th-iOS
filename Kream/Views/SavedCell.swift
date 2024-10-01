@@ -10,15 +10,15 @@ import SnapKit
 
 class SavedCell: UITableViewCell {
     static let identifier = "SavedCell"
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -42,26 +42,50 @@ class SavedCell: UITableViewCell {
     // 각 셀에 대한 component 설정
     private lazy var savedImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
         
         return imageView
     }()
     
     private lazy var savedNameLabel: UILabel = {
         let label = UILabel()
-          
-          return label
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
     }()
     
     private lazy var savedInfoLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 9)
+        label.numberOfLines = 2
+        label.textAlignment = .left
+        label.textColor = UIColor.gray
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
     
     private lazy var savedPriceLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
+    }()
+    
+    private lazy var savedButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: "bookmark.fill")
+        button.setImage(image, for: .normal)
+        button.tintColor = .black
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        return button
     }()
     
     private func addComponents() {
@@ -86,13 +110,35 @@ class SavedCell: UITableViewCell {
         savedInfoLabel.snp.makeConstraints{
             $0.top.equalTo(savedNameLabel.snp.bottom)
             $0.leading.equalTo(savedNameLabel)
+            $0.width.equalTo(153)
+        }
+        
+        savedPriceLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(67)
+            $0.trailing.equalToSuperview().offset(-16)
+        }
+        
+        savedButton.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(18)
+            $0.trailing.equalToSuperview().offset(-17)
+            $0.width.lessThanOrEqualTo(14)
+            $0.height.lessThanOrEqualTo(18)
         }
     }
     
+    // 모델에 따라 셀을 구성하는 함수
     public func configure(model: SavedModel) {
         self.savedImageView.image = UIImage(named: model.savedImage)
         self.savedNameLabel.text = model.savedName
         self.savedInfoLabel.text = model.savedInfo
         self.savedPriceLabel.text = model.savedPrice
+        
+        // savedInfoLabel에 lineHeight 적용
+        let paragrahStyle = NSMutableParagraphStyle()
+        paragrahStyle.minimumLineHeight = 14.4
+        
+        let attributedString = NSAttributedString(string: model.savedInfo , attributes: [.paragraphStyle: paragrahStyle])
+        
+        self.savedInfoLabel.attributedText = attributedString
     }
 }
