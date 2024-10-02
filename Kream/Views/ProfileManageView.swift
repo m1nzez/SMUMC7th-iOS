@@ -26,8 +26,6 @@ class ProfileManageView: UIView {
         imageView.layer.cornerRadius = 90/2
         imageView.layer.masksToBounds = true // 경계 밖의 내용이 잘리도록 설정
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-
         return imageView
     }()
     
@@ -45,13 +43,13 @@ class ProfileManageView: UIView {
         label.textColor = UIColor.black
         label.text = "유저 이메일"
         label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
     
     private lazy var userEmailTextField: UITextField = {
         let textField = UITextField()
+        textField.text = UserDefaults.standard.string(forKey: "userEmail")
         textField.placeholder = "새로운 이메일을 입력해주세요!"
         textField.font = UIFont.systemFont(ofSize: 14)
         
@@ -62,13 +60,11 @@ class ProfileManageView: UIView {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
-        
-        textField.translatesAutoresizingMaskIntoConstraints = false
-    
+            
         return textField
     }()
     
-    private lazy var userEmailChangeButton : UIButton = {
+    public lazy var userEmailChangeButton : UIButton = {
         let button = UIButton()
 
         let font = UIFont.systemFont(ofSize: 14)
@@ -85,20 +81,20 @@ class ProfileManageView: UIView {
         return button
     }()
     
-    private lazy var userPasswordLabel: UILabel = {
+    public lazy var userPasswordLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         label.textColor = UIColor.black
         label.text = "유저 비밀번호"
         label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
     
     
-    private lazy var userPasswordTextField: UITextField = {
+    public lazy var userPasswordTextField: UITextField = {
         let textField = UITextField()
+        textField.text = UserDefaults.standard.string(forKey: "userPwd")
         textField.placeholder = "새로운 비밀번호을 입력해주세요!"
         textField.font = UIFont.systemFont(ofSize: 14)
         
@@ -110,12 +106,10 @@ class ProfileManageView: UIView {
         textField.leftView = paddingView
         textField.leftViewMode = .always
         
-        textField.translatesAutoresizingMaskIntoConstraints = false
-
         return textField
     }()
     
-    private lazy var userPasswordChangeButton : UIButton = {
+    public lazy var userPasswordChangeButton : UIButton = {
         let button = UIButton()
 
         let font = UIFont.systemFont(ofSize: 14)
@@ -165,15 +159,16 @@ class ProfileManageView: UIView {
             $0.height.equalTo(32)
             $0.width.equalTo(282)
             $0.top.lessThanOrEqualToSuperview().offset(332)
-            $0.leading.lessThanOrEqualToSuperview().offset(27)
+            $0.leading.equalToSuperview().offset(27)
+            $0.trailing.equalTo(userEmailChangeButton.snp.leading).offset(-8)
         }
         
         userEmailChangeButton.snp.makeConstraints{
             $0.height.equalTo(32)
-            $0.width.lessThanOrEqualTo(58)
+            $0.width.equalTo(58)
             $0.leading.lessThanOrEqualTo(userEmailTextField.snp.trailing).offset(8)
-            $0.centerY.equalTo(userEmailTextField.snp.centerY) // 텍스트 필드와 수직 중앙 정렬
-            $0.trailing.equalToSuperview().offset(-17)
+            $0.centerY.equalTo(userEmailTextField.snp.centerY)      // 텍스트 필드와 수직 중앙 정렬
+            $0.trailing.lessThanOrEqualToSuperview().offset(-17)
         }
         
         // 유저 비밀번호
@@ -186,15 +181,16 @@ class ProfileManageView: UIView {
             $0.height.equalTo(32)
             $0.width.equalTo(282)
             $0.top.lessThanOrEqualToSuperview().offset(413)
-            $0.leading.lessThanOrEqualToSuperview().offset(27)
+            $0.leading.equalToSuperview().offset(27)
+            $0.trailing.equalTo(userPasswordChangeButton.snp.leading).offset(-8)
         }
         
         userPasswordChangeButton.snp.makeConstraints{
             $0.height.equalTo(32)
-            $0.width.lessThanOrEqualTo(58)
+            $0.width.equalTo(58)
             $0.leading.equalTo(userPasswordTextField.snp.trailing).offset(8)
-            $0.centerY.equalTo(userPasswordTextField.snp.centerY) // 텍스트 필드와 수직 중앙 정렬
-            $0.trailing.equalToSuperview().offset(-17)
+            $0.centerY.equalTo(userPasswordTextField.snp.centerY)   // 텍스트 필드와 수직 중앙 정렬
+            $0.trailing.lessThanOrEqualToSuperview().offset(-17)
         }
     }
 }

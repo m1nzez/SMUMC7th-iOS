@@ -27,8 +27,6 @@ class MyPageView: UIView {
         button.tintColor = .black
         button.setImage(image, for: .normal)
         
-        button.translatesAutoresizingMaskIntoConstraints = false
-
         return button
     }()
 
@@ -39,8 +37,6 @@ class MyPageView: UIView {
         button.tintColor = .black
         button.setImage(image, for: .normal)
         
-        button.translatesAutoresizingMaskIntoConstraints = false
-
         return button
     }()
     
@@ -57,8 +53,6 @@ class MyPageView: UIView {
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 8
         
-        button.translatesAutoresizingMaskIntoConstraints = false
-
         return button
     }()
     
@@ -75,8 +69,6 @@ class MyPageView: UIView {
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 8
         
-        button.translatesAutoresizingMaskIntoConstraints = false
-
         return button
     }()
     

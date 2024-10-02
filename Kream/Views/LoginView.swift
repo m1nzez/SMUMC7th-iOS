@@ -80,13 +80,21 @@ class LoginView: UIView {
     
     public lazy var pwdTextField: UITextField = {
         let textField = UITextField()
-        textField.borderStyle = .roundedRect
+        
+        textField.borderStyle = .none       // 기본 테두리 대신 커스텀 설정을 위해 사용
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderWidth = 1.0
+        textField.layer.cornerRadius = 15.0
+
         textField.placeholder = "비밀번호를 입력해주세요"
         textField.font = UIFont.systemFont(ofSize: 12)
         
+        // left padding 설정
+
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
+
         textField.translatesAutoresizingMaskIntoConstraints = false
     
         return textField
@@ -142,7 +150,12 @@ class LoginView: UIView {
     // 애플 로그인 버튼
     public lazy var appleLoginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Apple로 로그인", for: .normal)
+        
+        let boldFont = UIFont.boldSystemFont(ofSize: 16)
+        let attributes: [NSAttributedString.Key: Any] = [ .font: boldFont ]
+        let attributedTitle = NSAttributedString(string: "Apple로 로그인", attributes: attributes)
+        
+        button.setAttributedTitle(attributedTitle, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.layer.borderColor = UIColor(named: "kream_lightGray")?.cgColor
         // borderColor는 CALayer속성이기에 UIClor대신 CGColor를 사용해야함

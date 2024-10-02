@@ -26,13 +26,10 @@ class LoginViewController: UIViewController {
     
     @objc func emailLoginButtonTapped() {
         // 로그인 아이디 비번 저장
-        guard let emailInfo = loginView.emailTextField.text, !emailInfo.isEmpty else {
+        guard let emailInfo = loginView.emailTextField.text, !emailInfo.isEmpty,
+              let pwdInfo = loginView.pwdTextField.text, !pwdInfo.isEmpty else {
             return
         }
-        guard let pwdInfo = loginView.pwdTextField.text, !pwdInfo.isEmpty else {
-            return
-        }
-        
         // 모델을 통해 텍스트 저장
         loginModel.saveUserId(emailInfo)
         loginModel.saveUserPwd(pwdInfo)

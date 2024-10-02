@@ -25,7 +25,6 @@ class SavedView: UIView {
         label.textAlignment = .center
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 28)
-        label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
     }()
