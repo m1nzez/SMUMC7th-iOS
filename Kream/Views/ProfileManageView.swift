@@ -10,9 +10,11 @@ import UIKit
 import SnapKit
 
 class ProfileManageView: UIView {
+    private let loginModel = LoginModel()
     
-    var isEmailEditing = true
-    var isPasswordEditing = true
+    // 데이터 수정 가능한 상태
+    var isEmailEditing = false
+    var isPasswordEditing = false 
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,7 +55,7 @@ class ProfileManageView: UIView {
     
     public lazy var userEmailTextField: UITextField = {
         let textField = UITextField()
-        textField.text = UserDefaults.standard.string(forKey: "userEmail")
+        textField.text = loginModel.loadUserId()
         textField.placeholder = "새로운 이메일을 입력해주세요!"
         textField.font = UIFont.systemFont(ofSize: 14)
         
@@ -64,22 +66,16 @@ class ProfileManageView: UIView {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
-        textField.isSecureTextEntry = true
-
             
         return textField
     }()
     
     public lazy var userEmailChangeButton : UIButton = {
         let button = UIButton()
-
-        let font = UIFont.systemFont(ofSize: 14)
-        let attributes: [NSAttributedString.Key: Any] = [ .font: font ]
-        let attributedTitle = NSAttributedString(string: "변경", attributes: attributes)
-        
-        button.setAttributedTitle(attributedTitle, for: .normal)
-
+        button.setTitle("변경", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitleColor(.black, for: .normal)
+
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 6
@@ -100,7 +96,7 @@ class ProfileManageView: UIView {
     
     public lazy var userPasswordTextField: UITextField = {
         let textField = UITextField()
-        textField.text = UserDefaults.standard.string(forKey: "userPwd")
+        
         textField.placeholder = "새로운 비밀번호을 입력해주세요!"
         textField.font = UIFont.systemFont(ofSize: 14)
         
@@ -111,22 +107,17 @@ class ProfileManageView: UIView {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
-        textField.isSecureTextEntry = true
+        // textField.isSecureTextEntry = true
 
-        
         return textField
     }()
     
     public lazy var userPasswordChangeButton : UIButton = {
         let button = UIButton()
-
-        let font = UIFont.systemFont(ofSize: 14)
-        let attributes: [NSAttributedString.Key: Any] = [ .font: font ]
-        let attributedTitle = NSAttributedString(string: "변경", attributes: attributes)
-        
-        button.setAttributedTitle(attributedTitle, for: .normal)
-
+        button.setTitle("변경", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitleColor(.black, for: .normal)
+        
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 6

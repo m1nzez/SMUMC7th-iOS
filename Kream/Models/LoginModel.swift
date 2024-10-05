@@ -9,24 +9,22 @@ import Foundation
 
 class LoginModel {
     private let userDefaults = UserDefaults.standard
-    private var email: String = ""
-    private var pwd: String = ""
-    
-    public func setEmail(_ email: String){
-        self.email = email
-    }
-
-    public func setPwd(_ pwd: String) {
-        self.pwd = pwd
-    }
+    public var emailKey: String = "userEmail"         // key값을 userEmail로 설정
+    public var passwordKey: String = "userPwd"
     
     // UserDefaults로 데이터 저장
     public func saveUserId(_ text: String) {
-        userDefaults.set(text, forKey: email)
+        userDefaults.set(text, forKey: emailKey)
     }
-    
     public func saveUserPwd(_ text: String) {
-        userDefaults.set(text, forKey: pwd)
+        userDefaults.set(text, forKey: passwordKey)
     }
     
+    // UserDefaults에 저장된 값을 불러옴
+    public func loadUserId() -> String? {
+        return userDefaults.string(forKey: emailKey)
+    }
+    public func loadUserPwd() -> String? {
+        return userDefaults.string(forKey: passwordKey)
+    }
 }

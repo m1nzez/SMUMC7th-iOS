@@ -8,7 +8,8 @@
 import UIKit
 
 class ProfileManageViewController: UIViewController {
-
+    private let loginModel = LoginModel()
+    
     var userEmail: String = ""
     var userPwd: String = ""
     
@@ -18,11 +19,17 @@ class ProfileManageViewController: UIViewController {
         setupNavigationBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        profileManageView.userEmailTextField.text = loginModel.loadUserId()
+        profileManageView.userPasswordTextField.text = loginModel.loadUserPwd()
+    }
+    
     private lazy var profileManageView: ProfileManageView = {
         let view = ProfileManageView()
         
-        view.userEmailChangeButton.addTarget(self, action: #selector(emailiChangeButtonTapped()), for: .touchUpInside)
-        view.userPasswordChangeButton.addTarget(self, action: #selector(passwordChangeButtonTapped()), for: .touchUpInside)
+        view.userEmailChangeButton.addTarget(self, action: #selector(emailiChangeButtonTapped), for: .touchUpInside)
+        view.userPasswordChangeButton.addTarget(self, action: #selector(passwordChangeButtonTapped), for: .touchUpInside)
         
         return view
     }()
@@ -58,19 +65,40 @@ class ProfileManageViewController: UIViewController {
     }
     
     @objc func emailiChangeButtonTapped() {
-        if profileManageView.isEmailEditing {
+        if profileManageView.isEmailEditing == false {
+            // 이메일 수정 모드
             profileManageView.userEmailTextField.text = nil
             profileManageView.userEmailChangeButton.setTitle("확인", for: .normal)
+            profileManageView.userEmailTextField.isEnabled = true
+            profileManageView.isEmailEditing = true
+        } else {
+            // 이메일 저장 및 확인 모드
+            if let updatedEmail = profileManageView.userEmailTextField.text, !updatedEmail.isEmpty {
+                    loginModel.saveUserId(updatedEmail)
+                print("\(updatedEmail)")
+
+            }
+            profileManageView.userEmailChangeButton.setTitle("변경", for: .normal)
+            profileManageView.userEmailTextField.isEnabled = false
             profileManageView.isEmailEditing = false
         }
     }
     
     @objc func passwordChangeButtonTapped() {
-        if profileManageView.isPasswordEditing {
+        if profileManageView.isPasswordEditing == false {
             profileManageView.userPasswordTextField.text = nil
             profileManageView.userPasswordChangeButton.setTitle("확인", for: .normal)
-            profileManageView.isEmailEditing = false
+            profileManageView.userPasswordTextField.isEnabled = true
+            profileManageView.isPasswordEditing = true
+        } else {
+            if let updatedPassword = profileManageView.userEmailTextField.text, !updatedPassword.isEmpty {
+                    loginModel.saveUserId(updatedPassword)
+                print("\(updatedPassword)")
+            }
+            profileManageView.userPasswordChangeButton .setTitle("변경", for: .normal)
+            profileManageView.userPasswordTextField.isEnabled = false
+            profileManageView.isPasswordEditing = false
         }
     }
-
+ 
 }
