@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 
 class ProfileManageView: UIView {
+    
+    var isEmailEditing = true
+    var isPasswordEditing = true
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -47,7 +51,7 @@ class ProfileManageView: UIView {
         return label
     }()
     
-    private lazy var userEmailTextField: UITextField = {
+    public lazy var userEmailTextField: UITextField = {
         let textField = UITextField()
         textField.text = UserDefaults.standard.string(forKey: "userEmail")
         textField.placeholder = "새로운 이메일을 입력해주세요!"
@@ -60,6 +64,8 @@ class ProfileManageView: UIView {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
+        textField.isSecureTextEntry = true
+
             
         return textField
     }()
@@ -105,6 +111,8 @@ class ProfileManageView: UIView {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
+        textField.isSecureTextEntry = true
+
         
         return textField
     }()

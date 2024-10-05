@@ -20,7 +20,6 @@ class SavedViewController: UIViewController {
         let view = SavedView()
         view.savedTableView.dataSource = self
         view.savedTableView.delegate = self
-        // view.savedTableView.prefetchDataSource = self
         
         return view
     }()
@@ -42,13 +41,6 @@ extension SavedViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
-    
-    // 데이터 프리패칭 메소드: 화면에 보이기 전에 데이터를 미리 로드할 수 있어 스크롤 시 지연을 줄일 수 있음
-//    func tableView(_ tableView: UITableView, prefetchRowAt indexPaths: [IndexPath]) {
-//        for indexPath in indexPaths {
-//            preloadDataForItem(at: indexPath.row)
-//        }
-//    }
     
 }
 

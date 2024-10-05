@@ -59,14 +59,14 @@ class SavedView: UIView {
         }
         
         savedNumberLabel.snp.makeConstraints {
-            $0.top.lessThanOrEqualTo(savedLabel.snp.bottom).offset(16)
+            $0.top.equalTo(savedLabel.snp.bottom).offset(16)
             $0.leading.lessThanOrEqualToSuperview().offset(13)
         }
         
         savedTableView.snp.makeConstraints {
             $0.top.equalTo(savedNumberLabel.snp.bottom).offset(12)
-            $0.leading.trailing.bottom.equalToSuperview()
-            //$0.bottom.lessThanOrEqualToSuperview().offset(-20)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(safeAreaLayoutGuide.snp.top)
         }
     }
 }

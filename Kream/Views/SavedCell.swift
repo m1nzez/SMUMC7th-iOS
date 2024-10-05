@@ -18,7 +18,6 @@ class SavedCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         // Configure the view for the selected state
     }
     
@@ -42,8 +41,6 @@ class SavedCell: UITableViewCell {
     // 각 셀에 대한 component 설정
     private lazy var savedImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-
         
         return imageView
     }()
@@ -53,7 +50,6 @@ class SavedCell: UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 12)
         label.numberOfLines = 1
         label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
@@ -64,7 +60,6 @@ class SavedCell: UITableViewCell {
         label.numberOfLines = 2
         label.textAlignment = .left
         label.textColor = UIColor.gray
-        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
@@ -73,7 +68,6 @@ class SavedCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textAlignment = .right
-        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
@@ -83,7 +77,6 @@ class SavedCell: UITableViewCell {
         let image = UIImage(systemName: "bookmark.fill")
         button.setImage(image, for: .normal)
         button.tintColor = .black
-        button.translatesAutoresizingMaskIntoConstraints = false
 
         return button
     }()

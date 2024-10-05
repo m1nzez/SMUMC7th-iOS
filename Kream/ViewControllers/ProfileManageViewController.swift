@@ -21,8 +21,8 @@ class ProfileManageViewController: UIViewController {
     private lazy var profileManageView: ProfileManageView = {
         let view = ProfileManageView()
         
-        //view.userEmailChangeButton.addTarget(self, action: #selector(emailiChangeButtonTapped()), for: .touchUpInside)
-        //view.userPasswordChangeButton.addTarget(self, action: #selector(pwdChangeButtonTapped()), for: .touchUpInside)
+        view.userEmailChangeButton.addTarget(self, action: #selector(emailiChangeButtonTapped()), for: .touchUpInside)
+        view.userPasswordChangeButton.addTarget(self, action: #selector(passwordChangeButtonTapped()), for: .touchUpInside)
         
         return view
     }()
@@ -58,15 +58,19 @@ class ProfileManageViewController: UIViewController {
     }
     
     @objc func emailiChangeButtonTapped() {
-//        if profileManageView.isEmailEditing {
-//            profileManageView.emailTextField.text = nil
-//            profileManageView.emailEditButton.setTitle("확인", for: .normal)
-//            profileManageView.isEmailEditing = false
-//        }
+        if profileManageView.isEmailEditing {
+            profileManageView.userEmailTextField.text = nil
+            profileManageView.userEmailChangeButton.setTitle("확인", for: .normal)
+            profileManageView.isEmailEditing = false
+        }
     }
     
-    @objc func pwdChangeButtonTapped() {
-        
+    @objc func passwordChangeButtonTapped() {
+        if profileManageView.isPasswordEditing {
+            profileManageView.userPasswordTextField.text = nil
+            profileManageView.userPasswordChangeButton.setTitle("확인", for: .normal)
+            profileManageView.isEmailEditing = false
+        }
     }
 
 }
