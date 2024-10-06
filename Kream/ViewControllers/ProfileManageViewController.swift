@@ -91,7 +91,7 @@ class ProfileManageViewController: UIViewController {
             profileManageView.userPasswordTextField.isEnabled = true
             profileManageView.isPasswordEditing = true
         } else {
-            if let updatedPassword = profileManageView.userEmailTextField.text, !updatedPassword.isEmpty {
+            if let updatedPassword = profileManageView.userPasswordTextField.text, !updatedPassword.isEmpty {
                     loginModel.saveUserId(updatedPassword)
                 print("\(updatedPassword)")
             }

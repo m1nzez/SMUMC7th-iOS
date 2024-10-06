@@ -86,6 +86,7 @@ class SavedCell: UITableViewCell {
         self.addSubview(savedNameLabel)
         self.addSubview(savedInfoLabel)
         self.addSubview(savedPriceLabel)
+        self.addSubview(savedButton)
 
         
         savedImageView.snp.makeConstraints {
@@ -114,8 +115,8 @@ class SavedCell: UITableViewCell {
         savedButton.snp.makeConstraints {
             $0.top.equalToSuperview().offset(18)
             $0.trailing.equalToSuperview().offset(-17)
-            $0.width.lessThanOrEqualTo(14)
-            $0.height.lessThanOrEqualTo(18)
+            $0.width.equalTo(18)
+            $0.height.equalTo(18)
         }
     }
     

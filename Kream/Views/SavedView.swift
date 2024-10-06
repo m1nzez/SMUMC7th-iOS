@@ -66,7 +66,7 @@ class SavedView: UIView {
         savedTableView.snp.makeConstraints {
             $0.top.equalTo(savedNumberLabel.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(safeAreaLayoutGuide.snp.top)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
         }
     }
 }
