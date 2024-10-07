@@ -88,7 +88,7 @@ class ProfileManageViewController: UIViewController {
         if profileManageView.isPasswordEditing == false {
             profileManageView.userPasswordTextField.text = nil
             profileManageView.userPasswordChangeButton.setTitle("확인", for: .normal)
-            profileManageView.userPasswordTextField.isEnabled = true
+            profileManageView.userPasswordTextField.isUserInteractionEnabled = true
             profileManageView.isPasswordEditing = true
         } else {
             if let updatedPassword = profileManageView.userPasswordTextField.text, !updatedPassword.isEmpty {
