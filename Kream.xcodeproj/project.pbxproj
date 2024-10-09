@@ -32,6 +32,7 @@
 		97B597A22C983754004E4921 /* KreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B597A12C983754004E4921 /* KreamTests.swift */; };
 		97B597AC2C983754004E4921 /* KreamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B597AB2C983754004E4921 /* KreamUITests.swift */; };
 		97B597AE2C983754004E4921 /* KreamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B597AD2C983754004E4921 /* KreamUITestsLaunchTests.swift */; };
+		97BE35812CB4299F003764F9 /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BE35802CB4299F003764F9 /* RecommendView.swift */; };
 		C1946220E05BEF29DBD04665 /* Pods_KreamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F45B71F50CD0B315869D3A /* Pods_KreamTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		97B597A72C983754004E4921 /* KreamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KreamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B597AB2C983754004E4921 /* KreamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KreamUITests.swift; sourceTree = "<group>"; };
 		97B597AD2C983754004E4921 /* KreamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KreamUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		97BE35802CB4299F003764F9 /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		A4898936340F9DDFB9945E53 /* Pods-Kream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kream.debug.xcconfig"; path = "Target Support Files/Pods-Kream/Pods-Kream.debug.xcconfig"; sourceTree = "<group>"; };
 		B1EBA5746875E73CD927C46F /* Pods-Kream-KreamUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kream-KreamUITests.debug.xcconfig"; path = "Target Support Files/Pods-Kream-KreamUITests/Pods-Kream-KreamUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4DD0DA48C7812308DB83063 /* Pods-Kream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kream.release.xcconfig"; path = "Target Support Files/Pods-Kream/Pods-Kream.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				970159C52C99921E007DEA4B /* LoginView.swift */,
 				976611C92CB2BE600051365E /* HomeView.swift */,
+				97BE35802CB4299F003764F9 /* RecommendView.swift */,
 				9764A78B2CA934F000FED49F /* SavedCell.swift */,
 				9764A7872CA913A500FED49F /* SavedView.swift */,
 				972A41E82CA06D4D00A3E733 /* MyPageView.swift */,
@@ -478,6 +481,7 @@
 				97B5978F2C983753004E4921 /* LoginViewController.swift in Sources */,
 				970159C12C999125007DEA4B /* LoginModel.swift in Sources */,
 				972A41F42CA0769D00A3E733 /* ShopViewController.swift in Sources */,
+				97BE35812CB4299F003764F9 /* RecommendView.swift in Sources */,
 				97B5978B2C983753004E4921 /* AppDelegate.swift in Sources */,
 				97AD31472CA15147000E9717 /* ProfileManageViewController.swift in Sources */,
 				97AD31492CA1AD45000E9717 /* ProfileManageView.swift in Sources */,

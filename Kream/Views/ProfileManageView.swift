@@ -10,7 +10,9 @@ import UIKit
 import SnapKit
 
 class ProfileManageView: UIView {
+    
     private let loginModel = LoginModel()
+    private let profileImageViewSize: CGFloat = 90
     
     // 데이터 수정 가능한 상태
     var isEmailEditing = false
@@ -26,11 +28,10 @@ class ProfileManageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var profileImageView: UIImageView = {
+    public lazy var loadprofileImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "profile_image")
-        imageView.layer.cornerRadius = 90/2
-        imageView.layer.masksToBounds = true // 경계 밖의 내용이 잘리도록 설정
+        imageView.layer.cornerRadius = profileImageViewSize / 2
+        imageView.layer.masksToBounds = true 
         
         return imageView
     }()
@@ -127,7 +128,7 @@ class ProfileManageView: UIView {
     
     
     public func addComponents() {
-        self.addSubview(profileImageView)
+        self.addSubview(loadprofileImage)
         self.addSubview(profileInfoLabel)
         self.addSubview(userEmailLabel)
         self.addSubview(userEmailTextField)
@@ -136,9 +137,8 @@ class ProfileManageView: UIView {
         self.addSubview(userPasswordTextField)
         self.addSubview(userPasswordChangeButton)
         
-        profileImageView.snp.makeConstraints{
-            $0.width.equalTo(90)
-            $0.height.equalTo(90)
+        loadprofileImage.snp.makeConstraints{
+            $0.width.height.equalTo(profileImageViewSize)
             $0.top.lessThanOrEqualToSuperview().offset(144)
             $0.centerX.equalToSuperview()
         }

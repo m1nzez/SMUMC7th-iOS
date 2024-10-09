@@ -10,6 +10,8 @@ import UIKit
 class ProfileManageViewController: UIViewController {
     private let loginModel = LoginModel()
     
+    public var recievedProfileImage: UIImage?       // 프로필이미지 받을 변수
+    
     var userEmail: String = ""
     var userPwd: String = ""
     
@@ -17,6 +19,10 @@ class ProfileManageViewController: UIViewController {
         super.viewDidLoad()
         self.view = profileManageView
         setupNavigationBar()
+        
+        if let profileImage = recievedProfileImage {
+            profileManageView.loadprofileImage.image = profileImage
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

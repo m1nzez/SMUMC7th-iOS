@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         // 기본 rootVC 설정
-        window?.rootViewController = HomeViewController()
+        window?.rootViewController = MainTabBarViewController()
         window?.makeKeyAndVisible()
     }
 

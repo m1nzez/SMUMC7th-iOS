@@ -36,11 +36,9 @@ extension SavedViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SavedCell.identifier, for: indexPath) as? SavedCell else {
             return UITableViewCell()
         }
-        
         cell.configure(model: data[indexPath.row])
         
         return cell
     }
     
 }
-

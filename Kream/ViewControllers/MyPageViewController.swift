@@ -27,6 +27,9 @@ class MyPageViewController: UIViewController {
         let profileManageVC = ProfileManageViewController()
         // pushViewController를 사용하여 화면 이동
         self.navigationController?.pushViewController(profileManageVC, animated: true)
+        
+        //MyPageView에 있는 profileImageView에 대한 변수 전달
+        profileManageVC.recievedProfileImage = myPageView.profileImageView.image
     }
 
 }

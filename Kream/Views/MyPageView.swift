@@ -10,6 +10,8 @@ import SnapKit
 
 class MyPageView: UIView {
     
+    private let profileImageViewSize: CGFloat = 90
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -38,6 +40,15 @@ class MyPageView: UIView {
         button.setImage(image, for: .normal)
         
         return button
+    }()
+    
+    public lazy var profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "profile_image")
+        imageView.layer.cornerRadius = profileImageViewSize / 2
+        imageView.layer.masksToBounds = true // 경계 밖의 내용이 잘리도록 설정
+        
+        return imageView
     }()
     
     public lazy var profileManageButton: UIButton = {
@@ -71,33 +82,37 @@ class MyPageView: UIView {
         
         return button
     }()
-    
-    
+        
     public func addComponents() {
         self.addSubview(setButton)
         self.addSubview(cameraButton)
+        self.addSubview(profileImageView)
         self.addSubview(profileManageButton)
         self.addSubview(profileShareButton)
         
         setButton.snp.makeConstraints {
-            $0.width.lessThanOrEqualTo(25)
-            $0.height.lessThanOrEqualTo(25)
+            $0.width.height.equalTo(25)
             $0.top.equalToSuperview().offset(75)
-            $0.leading.lessThanOrEqualToSuperview().offset(32.5)
+            $0.leading.equalToSuperview().offset(32.5)
         }
         
         cameraButton.snp.makeConstraints {
-            $0.width.lessThanOrEqualTo(25)
-            $0.height.lessThanOrEqualTo(25)
+            $0.width.height.lessThanOrEqualTo(25)
             $0.top.equalToSuperview().offset(75)
-            $0.trailing.lessThanOrEqualTo(-25)
+            $0.trailing.equalToSuperview().offset(-32.5)
+        }
+                
+        profileImageView.snp.makeConstraints{
+            $0.top.lessThanOrEqualTo(setButton.snp.bottom).offset(26)
+            $0.leading.equalTo(setButton)
+            $0.width.height.lessThanOrEqualTo(profileImageViewSize)
         }
         
         profileManageButton.snp.makeConstraints {
             $0.width.lessThanOrEqualTo(157)
             $0.height.equalTo(26)
             $0.top.equalToSuperview().offset(242)
-            $0.leading.equalToSuperview().offset(32.5)
+            $0.leading.equalTo(profileImageView)
             $0.trailing.equalTo(profileShareButton.snp.leading).offset(-14)
         }
         
@@ -106,7 +121,7 @@ class MyPageView: UIView {
             $0.height.equalTo(26)
             $0.top.equalToSuperview().offset(242)
             $0.leading.equalTo(profileManageButton.snp.trailing).offset(14)
-            $0.trailing.equalToSuperview().offset(-32.5)
+            $0.trailing.equalTo(cameraButton)
         }
         
     }

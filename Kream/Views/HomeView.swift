@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class HomeView: UIView {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -45,28 +46,26 @@ class HomeView: UIView {
     }()
     
     public let homeSegmentedControl : UISegmentedControl = {
-        let segment = UISegmentedControl()
-        segment.insertSegment(withTitle: "추천", at: 0, animated: true)
-        segment.insertSegment(withTitle: "랭킹", at: 1, animated: true)
-        segment.insertSegment(withTitle: "발매정보", at: 2, animated: true)
-        segment.insertSegment(withTitle: "남성", at: 3, animated: true)
-        segment.insertSegment(withTitle: "여성", at: 4, animated: true)
-        segment.selectedSegmentIndex = 0
+        let segment = UISegmentedControl(items: ["추천", "랭킹", "발매정보", "럭셔리", "남성", "여성"])
+        segment.selectedSegmentIndex = 0        // 선택된 세그먼트 인덱스로 활용 
         
+        // 기본 상태
         segment.setTitleTextAttributes([
             NSAttributedString.Key.foregroundColor : UIColor.black,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .light),
         ], for: .normal)
         
+        // 선택된 상태
         segment.setTitleTextAttributes([
             NSAttributedString.Key.foregroundColor : UIColor.black,
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold),
         ], for: .selected)
         
+        segment.apportionsSegmentWidthsByContent = true  // 글자 크기에 맞게 segment 너비 설정
         segment.selectedSegmentTintColor = .clear
         segment.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
         segment.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
-        
+                
         return segment
     }()
     
@@ -107,9 +106,9 @@ class HomeView: UIView {
         
         underLineView.snp.makeConstraints {
             $0.top.equalTo(homeSegmentedControl.snp.bottom).offset(8)
-            $0.width.lessThanOrEqualTo(28)
+            $0.leading.equalTo(homeSegmentedControl)
             $0.height.lessThanOrEqualTo(2)
-            $0.leading.equalTo(homeSegmentedControl.snp.leading)
+            $0.width.equalTo(homeSegmentedControl.subviews[0].frame.width) // 초기 너비 설정
         }
         
     }
