@@ -32,8 +32,7 @@ class RecommendView: UIView {
         self.addSubview(adsImageView)
         
         adsImageView.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(134)
-            $0.leading.trailing.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview()
             $0.height.lessThanOrEqualTo(336)
         }
     }

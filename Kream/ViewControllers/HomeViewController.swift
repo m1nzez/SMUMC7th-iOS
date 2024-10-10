@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class HomeViewController: UIViewController {
     private let recommendView = RecommendView()
@@ -13,15 +14,27 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = homeView
+        setupView()
     }
     
     private lazy var homeView: HomeView = {
         let view = HomeView()
         view.homeSegmentedControl.addTarget(self, action: #selector(changeSegmentLineView(_:)), for: .valueChanged)
-        // view.homeSegmentedControl.addTarget(self, action: #selector(changeSegmentView(_:)), for: .valueChanged)
+        view.homeSegmentedControl.addTarget(self, action: #selector(changeSegmentView(_:)), for: .valueChanged)
         
         return view
     }()
+    
+    private func setupView() {
+        homeView.addSubview(recommendView)  // homeView에 recommendView 추가
+        recommendView.isHidden = true // 기본적으로 숨김 처리
+        
+        recommendView.snp.makeConstraints {
+            $0.top.equalTo(homeView.underLineView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(homeView.safeAreaLayoutGuide.snp.bottom)
+        }
+    }
     
     // 선택된 세그먼트에 맞춰 underLineView의 위치를 애니메이션으로 이동
     @objc private func changeSegmentLineView(_ segment: UISegmentedControl) {
